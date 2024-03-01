@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .one{
+            border: 3px solid black;
+            padding: 10px;
+            width: 120px;
+            height: 120px;
+            text-align: center;
+        }
+
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+</head>
+<body>
+    <a href="/home.html">
+		<button>go back</button>
+	</a>
+    <main class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <h1>STUDENTS</h1>
+                <ul>
+                    <li th:each="student:${us}">
+                        <div class = "one">
+                            <span th:style="'color:'+${student.hairColor}"th:text="${student.name}"></span> <br>
+                            gpa: <span th:text="${student.gpa}"></span> <br>
+                            yob: <span th:text="${student.yearOfBirth}"></span> <br>
+                            <div th:switch="${student.gender}">
+                                <span th:case="'female'">🚺</span>
+                                <span th:case="'male'">🚹</span>
+                            </div>
+                        </div>
+                        <br>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
